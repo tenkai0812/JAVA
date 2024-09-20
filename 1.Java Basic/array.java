@@ -5,7 +5,6 @@ public class array {
         arr1[1] = 1;
         arr1[3] = 3;
         arr1[4] = 4;
-        int result = int.join
         System.out.println(arr1);
     }
 }
