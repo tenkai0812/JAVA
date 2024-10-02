@@ -1,6 +1,6 @@
 package com.kaicode.web.user;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 import java.time.LocalDate;
 import lombok.Getter;
@@ -9,11 +9,21 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
+@Table
 @Getter @Setter @NoArgsConstructor
 @ToString(exclude = "password")
-public class User {
+public class Webuser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+        name = "webuser_sequence",
+        sequenceName = "webuser_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.AUTO,
+        generator = "webuser_sequence"
+    )
+
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -34,7 +44,7 @@ public class User {
     private LocalDate dob;
 
     // 添加自定義構造函數
-    public User(Long id, String username, String email, Date createdAt, Date lastLogin, LocalDate dob) {
+    public Webuser(Long id, String username, String email, Date createdAt, Date lastLogin, LocalDate dob) {
         this.id = id;
         this.username = username;
         this.email = email;

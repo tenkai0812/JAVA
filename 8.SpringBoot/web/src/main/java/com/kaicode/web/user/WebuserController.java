@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 @RequestMapping(path = "api/v1/users")
-public class UserController {
-    private final UserService userService;
+public class WebuserController {
+    private final WebuserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public WebuserController(WebuserService userService) {
         this.userService = userService;
     }
 
 
     @GetMapping
-    public List<User> getUsers() {
+    public List<Webuser> getUsers() {
         return userService.getUsers();
     }
 }
