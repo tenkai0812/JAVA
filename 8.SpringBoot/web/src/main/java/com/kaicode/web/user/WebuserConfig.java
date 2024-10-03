@@ -13,7 +13,6 @@ public class WebuserConfig {
     CommandLineRunner commandLineRunner(WebuserRepository repository){
         return args -> {
             Webuser Ken = new Webuser(
-                1L,
                 "Ken",
                 "Ken@gmail.com",
                 new Date(),
@@ -22,12 +21,11 @@ public class WebuserConfig {
             );
 
             Webuser Candy = new Webuser(
-                2L,
                 "Candy",
                 "Candy@gmail.com",
                 new Date(),
                 new Date(),
-                LocalDate.of(1990, 8, 12)
+                LocalDate.of(2000, 8, 12)
             );
 
             repository.saveAll(
