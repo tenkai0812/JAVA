@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@Service
+@Service//封裝業務邏輯
 public class WebuserService {
 
     private final WebuserRepository webuserRepository;

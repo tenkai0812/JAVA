@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-@RestController
+@RestController//HTTP request層
 @RequestMapping(path = "api/v1/users")
 public class WebuserController {
     private final WebuserService userService;
@@ -32,6 +32,6 @@ public class WebuserController {
 
     @DeleteMapping(path = "{webuserId}")
     public void deleteWebuser(@PathVariable("webuserId") Long webuserId){
-        WebuserService.deleteWebuser(webuserId);
+        userService.deleteWebuser(webuserId);
     }
 }

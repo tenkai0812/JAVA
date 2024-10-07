@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
-@Repository
+@Repository//數據庫操作層
 public interface WebuserRepository 
         extends JpaRepository<Webuser, Long> {
         

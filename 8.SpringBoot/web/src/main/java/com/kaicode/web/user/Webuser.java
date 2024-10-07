@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.time.LocalDate;
 import java.time.Period;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,7 @@ import lombok.ToString;
 @Getter // Lombok注解：自動生成所有欄位的getter方法
 @Setter // Lombok注解：自動生成所有欄位的setter方法
 @NoArgsConstructor // Lombok注解：自動生成無參建構函數
+@AllArgsConstructor// Lombok注解：
 @ToString(exclude = "password") // Lombok注解：生成toString方法，但排除password欄位
 public class Webuser {
 
