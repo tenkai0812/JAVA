@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "T. 測試", description = "")
-@RestController//HTTP request層
+@RestController//HTTP request層 @RestController = @Controller + @ResponseBody
 @RequestMapping(path = "/test")
 @RequiredArgsConstructor
 @Slf4j
