@@ -10,7 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 /**
  * 表示Web用戶的實體類。
  * 使用JPA注解進行物件關係映射。
@@ -18,10 +19,12 @@ import lombok.ToString;
  */
 @Entity // 標記此類為JPA實體
 @Table // 指定資料庫表名（預設使用類名）
+//Getter Setter 要在沒有特殊需求的時候使用，eg:若你需要做運算後get attribute就不行使用，因為沒辦法寫入
 @Getter // Lombok注解：自動生成所有欄位的getter方法
 @Setter // Lombok注解：自動生成所有欄位的setter方法
 @NoArgsConstructor // Lombok注解：自動生成無參建構函數
-@AllArgsConstructor// Lombok注解：
+@AllArgsConstructor// Lombok注解：自動生成一個全參數結構函數
+@Slf4j
 @ToString(exclude = "password") // Lombok注解：生成toString方法，但排除password欄位
 public class Webuser {
 
