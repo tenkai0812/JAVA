@@ -2,7 +2,6 @@ package com.kaicode.web.controller;
 
 import com.kaicode.web.Coffee;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
