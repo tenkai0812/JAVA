@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/coffees")
 public class RestApiDemoController {
     private List<Coffee> coffees = new ArrayList<>();
 
@@ -21,13 +21,13 @@ public class RestApiDemoController {
         ));
     }
 
-    @GetMapping("./coffees")
+    @GetMapping
     Iterable<Coffee> getCoffees(){
         return coffees;
     }
 
     //若想要檢索特定單一咖啡，指定路徑中{id}部分唯一個URL變數，以@PathVariable來註釋他，其值就會經由id參數傳遞給GetCoffeeById方法
-    @GetMapping("./coffees/{id}")
+    @GetMapping("/{id}")
     Optional<Coffee> getCoffeeById(@PathVariable String id) {
         for(Coffee c: coffees){
             if(c.getId().equals(id)){
@@ -37,10 +37,29 @@ public class RestApiDemoController {
         return Optional.empty();
     }
 
-    @PostMapping("./coffees"){
-        Coffee postCoffee(@RequestBody Coffee coffee){
-            coffees.add(coffees);
+    @PostMapping
+    Coffee postCoffee(@RequestBody Coffee coffee){
+        coffees.add(coffee);
+        return coffee;
+    }
+
+    @PutMapping("{id}")
+    Coffee putCoffee(@PathVariable String id, @RequestBody Coffee coffee){
+        int coffeeIndex = -1;
+
+        for(Coffee c:coffees){
+            if(c.getId().equals(id)){
+                coffeeIndex = coffees.indexOf(c);
+                coffees.set(coffeeIndex, coffee);
+            }
         }
+
+        return (coffeeIndex == -1) ? postCoffee(coffee) : coffee;
+    }
+
+    @DeleteMapping("{id}")
+    void deleteCoffee(@PathVariable String id){
+        coffees.removeIf(c -> c.getId().equals(id));
     }
 
 }
