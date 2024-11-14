@@ -13,9 +13,9 @@ import java.util.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 
-@Tag(name = "T. 測試", description = "")
+@Tag(name = "Webuser", description = "")
 @RestController//HTTP request層 @RestController = @Controller + @ResponseBody
-@RequestMapping(path = "/test")
+@RequestMapping(path = "/api/v1/users")
 @Slf4j
 public class WebuserController {
     private final WebuserService userService;
