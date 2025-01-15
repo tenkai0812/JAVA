@@ -18,4 +18,22 @@
 * Implementation        不同語言下的各種實作方法
 
 ### Strategy Pattern
+```mermaid
+classDiagram
+    class Hero {
+        -string name
+        -int HP
+        -int MP
+        -int strength
+        -int wisdom
+        -int defense
+        -string Skill
+        +attack(targetHero : Hero) void
+    }
 
+    class battle {
+        +hero1: Hero
+        +hero2: Hero
+        +start() void
+    }
+```
