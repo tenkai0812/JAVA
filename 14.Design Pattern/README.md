@@ -32,8 +32,24 @@ classDiagram
     }
 
     class battle {
+        <<interface>>
         +hero1: Hero
         +hero2: Hero
         +start() void
     }
+
+    class Skill{
+        <<interface>>
+        +attack(attackingHero : Hero, attackedHero : Hero) void
+    }
+
+    class Colliding
+
+    class Waterball
+
+
+    Hero <|.. Skill : 攻擊英雄
+    Skill <|.. Hero : 委派攻擊
+    Skill <|.. Colliding
+    Skill <|.. Waterball
 ```
